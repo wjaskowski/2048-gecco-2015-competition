@@ -1,6 +1,10 @@
 2048 Controller Competition @ GECCO 2015
 ========================================
-This code requires Java 8.
+Competition website: http://www.cs.put.poznan.pl/wjaskowski/game-2048-competition-gecco-2015
+
+Prerequisites
+-------------
+Java 8.
 
 Building
 --------
