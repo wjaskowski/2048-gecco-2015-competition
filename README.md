@@ -46,9 +46,10 @@ class MyTeamAgent implements Agent {
         final int NUM_GAMES = 1000;
 
         RandomDataGenerator random = new RandomDataGenerator(new MersenneTwister(123));
-		MultipleGamesResult result = new Game(ACTION_TIME_LIMIT).playMultiple(MyAgent::new, NUM_GAMES, random);
+		MultipleGamesResult result = new Game(ACTION_TIME_LIMIT).playMultiple(MyTeamAgent::new, NUM_GAMES, random);
 		System.out.println(result.toCvsRow());
     }
+}
 ```
 
 To compile the agent:
