@@ -27,7 +27,8 @@ import org.apache.commons.math3.random.RandomDataGenerator;
 class MyTeamAgent implements Agent {
 	public Random random = new Random(123);
 
-	public Action chooseAction(Board board, List<Action> possibleActions, Duration maxTime) {
+	//timeLimit will always be 1ms
+	public Action chooseAction(Board board, List<Action> possibleActions, Duration timeLimit) {
 	    if (possibleActions.contains(Action.UP)) {
 	        return Action.UP;
         } else {
