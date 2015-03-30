@@ -12,8 +12,8 @@ If you want to build it yourself, you need Maven. Just execute:
 > mvn package
 ```
 
-Coding your agent
------------------
+Preparing your agent
+--------------------
 An examplary MyTeamAgent.java:
 ```java
 import java.time.Duration;
@@ -35,6 +35,7 @@ class MyTeamAgent implements Agent {
         }
 	}
 
+    // A similar main() will be used by the organizers to evaluate your agent
     public static void main(String[] args) {
         final Duration ACTION_TIME_LIMIT = Duration.ofMillis(1);
         final int NUM_GAMES = 1000;
@@ -45,21 +46,19 @@ class MyTeamAgent implements Agent {
     }
 ```
 
-Compiling your agent
---------------------
+To compile the agent:
 ```bash
 > javac -cp 2048.jar MyAgent.java
 ```
 
-Running your agent
-------------------
+To run the agent: 
 ```bash
 > java -cp .:2048.jar MyAgent
 MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
 1305.3,13.1,5356.0,0.000,1.000,0.995,0.929,0.614,0.135,0.001,0.000,0.000,0.000,0.000,0.000,0.000,0.000
 ```
 
-The latter values mean the percentage of cases where the controller achieved a tile of a given value.
+The values at the end of the row are the percentages of games in which the controller achieved a tile of a given value.
 
 Authors
 -------
