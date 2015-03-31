@@ -64,8 +64,11 @@ The values at the end of the resulting row are the percentages of games in which
 
 See also:
 ```bash
-> java -jar 2048.jar                                                                                                                              1 ↵
+> java -jar 2048.jar
 usage: java -jar jar agent_jar_file agent_class_name num_games action_time_limit_ms random_seed
+```
+
+```bash
 > java -jar 2048.jar 2048.jar put.game2048.BlindReflexAgent 100 1 123
 MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
 2235.9,190.3,5096.0,0.002,1.000,1.000,1.000,0.920,0.490,0.020,0.000,0.000,0.000,0.000,0.000,0.000,0.000
