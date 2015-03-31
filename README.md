@@ -18,53 +18,58 @@ If you want to build it yourself, you need Maven. Just execute:
 
 Preparing your agent
 --------------------
-A simple examplary controller (MyTeamAgent.java):
+A simple examplary controller (MyAgent.java):
 ```java
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 import put.game2048.*;
 
-import org.apache.commons.math3.random.MersenneTwister;
-import org.apache.commons.math3.random.RandomDataGenerator;
-
-class MyTeamAgent implements Agent {
+public class MyAgent implements Agent {
 	public Random random = new Random(123);
 
-	//timeLimit will always be 1ms
+	// A nonparametric constructor is required
+
+    /** timeLimit will always be 1 ms */
 	public Action chooseAction(Board board, List<Action> possibleActions, Duration timeLimit) {
-	    if (possibleActions.contains(Action.UP)) {
-	        return Action.UP;
+	    // Prefer right direction
+	    if (possibleActions.contains(Action.RIGHT)) {
+	        return Action.RIGHT;
         } else {
+            // If cannot go right, then make a random move
             return possibleActions.get(random.nextInt(possibleActions.size()));
         }
 	}
-
-    // A similar main() will be used by the organizers to evaluate your agent
-    public static void main(String[] args) {
-        final Duration ACTION_TIME_LIMIT = Duration.ofMillis(1);
-        final int NUM_GAMES = 1000;
-
-        RandomDataGenerator random = new RandomDataGenerator(new MersenneTwister(123));
-		MultipleGamesResult result = new Game(ACTION_TIME_LIMIT).playMultiple(MyTeamAgent::new, NUM_GAMES, random);
-		System.out.println(result.toCvsRow());
-    }
 }
 ```
 
-To compile the agent:
+First, compile the agent:
 ```bash
 > javac -cp 2048.jar MyAgent.java
 ```
 
-To run the agent: 
+Then, put it into a jar:
 ```bash
-> java -cp .:2048.jar MyAgent
-MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
-1305.3,13.1,5356.0,0.000,1.000,0.995,0.929,0.614,0.135,0.001,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+jar -cf MyAgent.jar MyAgent.class
 ```
 
-The values at the end of the row are the percentages of games in which the controller achieved a tile of a given value.
+Finally, evaluate it:
+```bash
+> java -jar 2048.jar MyAgent.jar MyAgent 10000 1.0 123
+MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
+1249.4,11.3,5320.0,0.000,1.000,0.999,0.957,0.623,0.104,0.001,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+```
+
+The values at the end of the resulting row are the percentages of games in which the controller achieved a tile of a given value.
+
+See also:
+```bash
+> java -jar 2048.jar                                                                                                                              1 ↵
+usage: java -jar jar agent_jar_file agent_class_name num_games action_time_limit_ms random_seed
+> java -jar 2048.jar 2048.jar put.game2048.BlindReflexAgent 100 1 123
+MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
+2235.9,190.3,5096.0,0.002,1.000,1.000,1.000,0.920,0.490,0.020,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+```
 
 Authors
 -------
