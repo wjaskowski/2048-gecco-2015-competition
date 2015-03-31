@@ -41,7 +41,7 @@ public class MultipleGamesResult {
 	public String toCvsRow() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(
-				"MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536\n");
+				"MeanScore,95ConfInterval,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536\n");
 		builder.append(String.format("%.1f,", score.getMean()));
 		builder.append(String.format("%.1f,", confInterval95(score)));
 		builder.append(score.getMax()).append(",");
