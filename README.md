@@ -50,7 +50,7 @@ First, compile the agent:
 
 Then, put it into a jar:
 ```bash
-jar -cf MyAgent.jar MyAgent.class
+> jar -cf MyAgent.jar MyAgent.class
 ```
 
 Finally, evaluate it:
