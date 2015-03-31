@@ -8,7 +8,7 @@ Java 8.
 
 Building
 --------
-You do need to build the code. Just download the prebuild [2048.jar](https://github.com/wjaskowski/2048-gecco-2015-competition/releases/tag/1.0)
+You do need to build the code. Just download the prebuild [2048.jar](https://github.com/wjaskowski/2048-gecco-2015-competition/releases/latest)
 
 If you want to build it yourself, you need Maven. Just execute:
 
