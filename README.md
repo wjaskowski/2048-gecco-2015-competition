@@ -56,7 +56,7 @@ Then, put it into a jar:
 Finally, evaluate it:
 ```bash
 > java -jar 2048.jar MyAgent.jar MyAgent 10000 1.0 123
-MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
+MeanScore,95ConfInterval,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
 1249.4,11.3,5320.0,0.000,1.000,0.999,0.957,0.623,0.104,0.001,0.000,0.000,0.000,0.000,0.000,0.000,0.000
 ```
 
@@ -70,7 +70,7 @@ usage: java -jar jar agent_jar_file agent_class_name num_games action_time_limit
 
 ```bash
 > java -jar 2048.jar 2048.jar put.game2048.BlindReflexAgent 100 1 123
-MeanScore,95IntervalScore,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
+MeanScore,95ConfInterval,MaxScore,AvgActionTime[ms],16,32,64,128,256,512,1024,2048,4096,8912,16384,32768,65536
 2235.9,190.3,5096.0,0.002,1.000,1.000,1.000,0.920,0.490,0.020,0.000,0.000,0.000,0.000,0.000,0.000,0.000
 ```
 
