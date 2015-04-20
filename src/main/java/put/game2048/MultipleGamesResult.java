@@ -35,6 +35,7 @@ public class MultipleGamesResult {
 		for (int tile = gameResult.getMaxTile(); tile >= 16; tile /= 2) {
 			tiles.put(tile, tiles.getOrDefault(tile, 0) + 1);
 		}
+
 		gameResult.getActionDurationNanos().forEach(actionDurationNanos::addValue);
 	}
 
